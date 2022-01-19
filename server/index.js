@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const { sequelize } = require('./database/models');
 
 const PORT = process.env.PORT || 5000;
 
@@ -17,6 +18,7 @@ app.use(cookieParser());
 
 const start = async () => {
     try {
+        await sequelize.authenticate(); //db connection
         app.listen(PORT, () => {
             console.log(`Server start on ${PORT} port: http://localhost:${PORT}`);
         });
