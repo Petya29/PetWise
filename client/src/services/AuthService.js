@@ -1,3 +1,4 @@
+import axios from 'axios';
 import $api from '../http';
 
 export default class AuthService {
@@ -19,5 +20,9 @@ export default class AuthService {
 
     static async logout() {
         return await $api.post('/user/logout');
+    }
+
+    static async checkAuth() {
+        return await axios.get(`${process.env.REACT_APP_BASE_API_URL}/user/refresh`, { withCredentials: true });
     }
 }

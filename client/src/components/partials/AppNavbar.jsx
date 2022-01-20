@@ -1,14 +1,30 @@
 import React, { useEffect, Fragment } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setUser, setAuth } from '../../store/reducers/authSlice';
 import M from 'materialize-css';
+import AuthService from '../../services/AuthService';
 
 export default function AppNavbar() {
 
   const isAuth = useSelector(state => state.auth.isAuth);
-  // const lang = useSelector(state => state.global.lang);
+
+  const dispatch = useDispatch();
 
   const location = useLocation();
+
+  const logout = async (e) => {
+    e.preventDefault();
+
+    try {
+      await AuthService.logout();
+      localStorage.removeItem('token');
+      dispatch(setAuth(false));
+      dispatch(setUser({}));
+    } catch (e) {
+      console.log(e.response?.data?.errors);
+    }
+  }
 
   useEffect(() => {
     M.AutoInit();
@@ -34,7 +50,7 @@ export default function AppNavbar() {
               ?
               <Fragment>
                 <li><Link to="/">Profile</Link></li>
-                <li><Link to="/">Logout</Link></li>
+                <li><a href="/" onClick={e => logout(e)}>Logout</a></li>
               </Fragment>
               :
               <Fragment>
@@ -60,7 +76,7 @@ export default function AppNavbar() {
           <Fragment>
             <li className={location.pathname === '/' ? "active" : ''}><Link to="/" className="sidenav-close">Home</Link></li>
             <li className={location.pathname === '/profile' ? "active" : ''}><Link to="/" className="sidenav-close">Profile</Link></li>
-            <li><Link to="/" className="sidenav-close">Logout</Link></li>
+            <li><a href="/" className="sidenav-close" onClick={e => logout(e)}>Logout</a></li>
           </Fragment>
           :
           <Fragment>
