@@ -79,7 +79,7 @@ class UserController {
 
             return res.json(userData);
         } catch (e) {
-            res.send(e);
+            res.status(e.status).send(e);
         }
     }
 
