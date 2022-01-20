@@ -1,6 +1,13 @@
 import React from 'react';
+import UserService from '../../services/UserService';
 
 export default function ProfileCard(props) {
+
+    const temo = async () => {
+        const response = await UserService.profile();
+        console.log(response);
+    }
+    temo();
 
     return (
         <div className="profile-card">

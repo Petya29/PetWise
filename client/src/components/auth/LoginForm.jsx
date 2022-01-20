@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { setUser, setAuth } from '../../store/reducers/authSlice';
 import MyButton from '../UI/MyButton/MyButton';
 import AuthService from '../../services/AuthService';
+import AppLoader from '../UI/AppLoader/AppLoader';
 
 export default function LoginForm() {
 
@@ -57,7 +58,15 @@ export default function LoginForm() {
             <small className="danger-password red-text hide">Password does not match</small>
           </div>
         </div>
-        <MyButton onClick={e => submitForm(e)} style={{ float: 'right' }} disabled={loading}>Login</MyButton>
+        <MyButton onClick={e => submitForm(e)} style={{ float: 'right' }} disabled={loading}>
+          Login
+          {loading
+            ?
+            <AppLoader style={{ width: "14px", height: "14px" }} />
+            :
+            ''
+          }
+        </MyButton>
       </form>
     </div>
   )
