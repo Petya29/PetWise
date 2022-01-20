@@ -25,3 +25,7 @@ input {
 .login-form form {
   width: 50%;
 }
+
+.profile-card {
+  margin-top: 25px;
+}

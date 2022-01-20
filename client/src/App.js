@@ -16,6 +16,7 @@ function App() {
   let checkAuth = useRef(() => { });
 
   checkAuth = async () => {
+    if (!localStorage.getItem('token')) return;
     try {
       const response = await AuthService.checkAuth();
       localStorage.setItem('token', response.data.accessToken);
