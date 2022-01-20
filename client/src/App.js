@@ -11,6 +11,9 @@ function App() {
   useEffect(() => {
     //Materialize config
     M.AutoInit();
+
+    const elemsDropdown = document.querySelectorAll('.dropdown-trigger');
+    M.Dropdown.init(elemsDropdown, { coverTrigger: false });
   }, []);
 
   return (
