@@ -11,3 +11,13 @@ a {
   color: #ffffff;
   min-height: 100vh;
 }
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.login-form form {
+  width: 50%;
+}
