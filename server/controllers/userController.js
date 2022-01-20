@@ -16,7 +16,7 @@ class UserController {
 
             return res.json(userData);
         } catch (e) {
-            res.send(e);;
+            res.status(e.status).send(e);
         }
     }
 
@@ -35,7 +35,7 @@ class UserController {
 
             return res.json(userData);
         } catch (e) {
-            res.send(e);
+            res.status(e.status).send(e);
         }
     }
 
@@ -48,7 +48,7 @@ class UserController {
 
             return res.json(token);
         } catch (e) {
-            res.send(e);;
+            res.send(e);
         }
     }
 
@@ -59,7 +59,7 @@ class UserController {
 
             return res.redirect(process.env.CLIENT_URL);
         } catch (e) {
-            res.send(e);;
+            res.send(e);
         }
     }
 
@@ -79,7 +79,7 @@ class UserController {
 
             return res.json(userData);
         } catch (e) {
-            res.send(e);;
+            res.send(e);
         }
     }
 
@@ -89,7 +89,7 @@ class UserController {
             const user = await userService.profile(userId);
             res.json(user);
         } catch (e) {
-            res.send(e);;
+            res.send(e);
         }
     }
 }

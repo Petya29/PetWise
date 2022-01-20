@@ -15,7 +15,7 @@ const validate = (schemas) => {
         //     message: 'Validation error',
         //     errors: errors,
         // })
-        return res.send(ApiError.badRequest('validation error', ...errors));
+        return res.status(400).send(ApiError.badRequest('validation error', ...errors));
     };
 }
 
