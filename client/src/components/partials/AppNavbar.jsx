@@ -1,8 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import M from 'materialize-css';
 
 export default function AppNavbar() {
+
+  const isAuth = useSelector(state => state.auth.isAuth);
+  // const lang = useSelector(state => state.global.lang);
 
   const location = useLocation();
 
@@ -26,8 +30,18 @@ export default function AppNavbar() {
           <div className="brand-logo"><Link to="/">PetWise</Link></div>
           <a href="#!" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
           <ul className="right hide-on-med-and-down">
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/login">Register</Link></li>
+            {isAuth
+              ?
+              <Fragment>
+                <li><Link to="/">Profile</Link></li>
+                <li><Link to="/">Logout</Link></li>
+              </Fragment>
+              :
+              <Fragment>
+                <li><Link to="/login">Login</Link></li>
+                <li><Link to="/login">Register</Link></li>
+              </Fragment>
+            }
             {/* Dropdown Trigger */}
             <li><a className="dropdown-trigger" href="#!" data-target="dropdown-langs">English<i className="material-icons right">arrow_drop_down</i></a></li>
           </ul>
@@ -41,9 +55,20 @@ export default function AppNavbar() {
         <li><a href="#!">Russian</a></li>
       </ul>
       <ul className="sidenav" id="mobile-demo">
-        <li className={location.pathname === '/' ? "active" : ''}><Link to="/" className="sidenav-close">Home</Link></li>
-        <li className={location.pathname === '/login' ? "active" : ''}><Link to="/login" className="sidenav-close">Login</Link></li>
-        <li className={location.pathname === '/register' ? "active" : ''}><Link to="/login" className="sidenav-close">Register</Link></li>
+        {isAuth
+          ?
+          <Fragment>
+            <li className={location.pathname === '/' ? "active" : ''}><Link to="/" className="sidenav-close">Home</Link></li>
+            <li className={location.pathname === '/profile' ? "active" : ''}><Link to="/" className="sidenav-close">Profile</Link></li>
+            <li><Link to="/" className="sidenav-close">Logout</Link></li>
+          </Fragment>
+          :
+          <Fragment>
+            <li className={location.pathname === '/' ? "active" : ''}><Link to="/" className="sidenav-close">Home</Link></li>
+            <li className={location.pathname === '/login' ? "active" : ''}><Link to="/login" className="sidenav-close">Login</Link></li>
+            <li className={location.pathname === '/register' ? "active" : ''}><Link to="/login" className="sidenav-close">Register</Link></li>
+          </Fragment>
+        }
         {/* Dropdown Trigger */}
         <li><a className="dropdown-trigger" href="#!" data-target="dropdown-langs-side">English<i className="material-icons right">arrow_drop_down</i></a></li>
       </ul>

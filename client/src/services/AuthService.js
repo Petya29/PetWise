@@ -17,7 +17,7 @@ export default class AuthService {
         });
     }
 
-    static async login() {
+    static async logout() {
         return await $api.post('/user/logout');
     }
 }
