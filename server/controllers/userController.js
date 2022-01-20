@@ -1,15 +1,8 @@
-const { validationResult } = require('express-validator');
 const userService = require('../services/userService');
-const ApiError = require('../error/ApiError');
 
 class UserController {
     async registration(req, res, next) {
         try {
-            const errors = validationResult(req);
-            if (!errors.isEmpty()) {
-                return next(ApiError.badRequest('Validation error', errors.array()))
-            }
-
             const { name, email, password } = req.body;
             const userData = await userService.registration(name, email, password);
 
@@ -29,11 +22,6 @@ class UserController {
 
     async login(req, res, next) {
         try {
-            const errors = validationResult(req);
-            if (!errors.isEmpty()) {
-                return next(ApiError.badRequest('Validation error', errors.array()))
-            }
-
             const { email, password } = req.body;
             const userData = await userService.login(email, password);
 
