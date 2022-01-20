@@ -1,0 +1,13 @@
+a {
+  color: #ffffff;
+}
+
+.no-paddings {
+  padding: 0 !important;
+}
+
+.App {
+  background-color: #282c34;
+  color: #ffffff;
+  min-height: 100vh;
+}
