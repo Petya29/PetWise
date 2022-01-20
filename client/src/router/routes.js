@@ -1,6 +1,5 @@
 import Login from "../views/auth/Login";
 import Home from "../views/Home";
-import Profile from "../views/user/Profile";
 
 export const routes = [
     {
@@ -15,10 +14,4 @@ export const routes = [
         component: Login,
         exact: true
     },
-    {
-        id: 3,
-        path: '/profile',
-        component: Profile,
-        exact: true
-    }
 ];
