@@ -59,7 +59,7 @@ export default function AppNavbar() {
               :
               <Fragment>
                 <li><Link to="/login">Login</Link></li>
-                <li><Link to="/login">Register</Link></li>
+                <li><Link to="/register">Register</Link></li>
               </Fragment>
             }
             {/* Dropdown Trigger */}
@@ -86,7 +86,7 @@ export default function AppNavbar() {
           <Fragment>
             <li className={location.pathname === '/' ? "active" : ''}><Link to="/" className="sidenav-close">Home</Link></li>
             <li className={location.pathname === '/login' ? "active" : ''}><Link to="/login" className="sidenav-close">Login</Link></li>
-            <li className={location.pathname === '/register' ? "active" : ''}><Link to="/login" className="sidenav-close">Register</Link></li>
+            <li className={location.pathname === '/register' ? "active" : ''}><Link to="/register" className="sidenav-close">Register</Link></li>
           </Fragment>
         }
         {/* Dropdown Trigger */}
