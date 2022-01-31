@@ -12,5 +12,6 @@ router.post('/logout', userController.logout);
 router.get('/activate/:link', userController.activate);
 router.get('/refresh', userController.refresh);
 router.get('/profile', authMiddleware, userController.profile);
+router.post('/add-count', userController.addCount);
 
 module.exports = router;

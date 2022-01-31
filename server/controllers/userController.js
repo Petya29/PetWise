@@ -89,7 +89,17 @@ class UserController {
             const user = await userService.profile(userId);
             res.json(user);
         } catch (e) {
-            res.send(e);
+            res.status(e.status).send(e);
+        }
+    }
+
+    async addCount(req, res, next) {
+        try {
+            const { email, token, values } = req.body;
+            const userData = await userService.addCount(email, token, values);
+            res.json(userData);
+        } catch (e) {
+            res.status(e.status).send(e);
         }
     }
 }

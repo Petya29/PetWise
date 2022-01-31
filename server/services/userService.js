@@ -120,6 +120,17 @@ class userService {
 
         return user;
     }
+
+    async addCount(email, token, values = 0) {
+        if (token !== process.env.TOKEN) throw ApiError.forbiden("Token doesn't match", [{ msg: "Token doesn't match" }]);
+
+        const user = await User.findOne({ where: { email: email } });
+        if (!user) throw ApiError.badRequest("User with this email didn't exist", [{ msg: "User with this email didn't exist" }]);
+
+        const incrementResult = await user.increment(['count'], { by: values });
+
+        return incrementResult;
+    }
 }
 
 module.exports = new userService();
