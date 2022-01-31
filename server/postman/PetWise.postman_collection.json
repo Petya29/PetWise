@@ -6,192 +6,351 @@
 	},
 	"item": [
 		{
-			"name": "/api/user/registration",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "name",
-							"value": "Petya Avramenko",
-							"description": "min: 4, max: 16",
-							"type": "default"
+			"name": "User",
+			"item": [
+				{
+					"name": "/api/user/registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Petya Avramenko",
+									"description": "min: 4, max: 16",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "petya29avramenko@gmail.com",
+									"description": "required",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "123123123",
+									"description": "min: 4, max: 16",
+									"type": "default"
+								},
+								{
+									"key": "confirmPassword",
+									"value": "123123123",
+									"type": "default"
+								}
+							]
 						},
-						{
-							"key": "email",
-							"value": "petya29avramenko@gmail.com",
-							"description": "required",
-							"type": "default"
-						},
-						{
-							"key": "password",
-							"value": "123123123",
-							"description": "min: 4, max: 16",
-							"type": "default"
-						},
-						{
-							"key": "confirmPassword",
-							"value": "123123123",
-							"type": "default"
+						"url": {
+							"raw": "http://localhost:5000/api/user/registration",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"registration"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:5000/api/user/registration",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"user",
-						"registration"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/api/user/login",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "email",
-							"value": "petya29avramenko@gmail.com",
-							"description": "required",
-							"type": "default"
+				{
+					"name": "/api/user/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "petya29avramenko@gmail.com",
+									"description": "required",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "123123123",
+									"description": "required",
+									"type": "default"
+								}
+							]
 						},
-						{
-							"key": "password",
-							"value": "123123123",
-							"description": "required",
-							"type": "default"
+						"url": {
+							"raw": "http://localhost:5000/api/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:5000/api/user/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"user",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/api/user/logout",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/api/user/logout",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"user",
-						"logout"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/api/user/activate/:link",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/api/user/activate/:link",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"user",
-						"activate",
-						":link"
-					],
-					"variable": [
-						{
-							"key": "link",
-							"value": "a8f0b9ee-243a-4815-8d5f-67c958e7cc29"
+				{
+					"name": "/api/user/logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/user/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"logout"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/api/user/refresh",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/api/user/refresh",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"user",
-						"refresh"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/api/user/profile",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6IlBldHlhIEF2cmFtZW5rbyIsImVtYWlsIjoicGV0eWEyOWF2cmFtZW5rb0BnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlzQWN0aXZhdGVkIjpmYWxzZSwiaWF0IjoxNjQyNjc0MDUzLCJleHAiOjE2NDI2ODEyNTN9.fCqjOohKUKfEKSTdrdzTYllbCe9N2p6ZFRkzx6jSvao",
-							"type": "string"
-						}
-					]
+					},
+					"response": []
 				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/api/user/profile",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"user",
-						"profile"
-					]
+				{
+					"name": "/api/user/activate/:link",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/user/activate/:link",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"activate",
+								":link"
+							],
+							"variable": [
+								{
+									"key": "link",
+									"value": "a8f0b9ee-243a-4815-8d5f-67c958e7cc29"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/refresh",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/user/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6IlBldHlhIEF2cmFtZW5rbyIsImVtYWlsIjoicGV0eWEyOWF2cmFtZW5rb0BnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlzQWN0aXZhdGVkIjpmYWxzZSwiaWF0IjoxNjQyNjc0MDUzLCJleHAiOjE2NDI2ODEyNTN9.fCqjOohKUKfEKSTdrdzTYllbCe9N2p6ZFRkzx6jSvao",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/user/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/addCount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "petya29avramenko@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "1a346bce-789c-4e64-baaf-0ad5abc938af",
+									"type": "text"
+								},
+								{
+									"key": "values",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/addCount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"addCount"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "/api/orders/list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/orders/list?orderBy=id&limit=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders",
+								"list"
+							],
+							"query": [
+								{
+									"key": "orderBy",
+									"value": "id"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/orders/add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlBldHlhIEF2cmFtZW5rbyIsImVtYWlsIjoicGV0eWEyOWF2cmFtZW5rb0BnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlzQWN0aXZhdGVkIjpmYWxzZSwiaWF0IjoxNjQzNjY0MjkzLCJleHAiOjE2NDM2NzE0OTN9.uyki-WZo6VSz7Zmj7fJqN1bCo6daQ7ueU9EiZgu_OTc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "productId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/orders/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"orders",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "/api/products/list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/products/list?orderBy=id&limit=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"products",
+								"list"
+							],
+							"query": [
+								{
+									"key": "orderBy",
+									"value": "id"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
