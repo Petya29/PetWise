@@ -16,10 +16,6 @@ module.exports = {
           key: 'id',
         }
       },
-      storeId: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
       sum: {
         type: Sequelize.INTEGER,
         allowNull: false
