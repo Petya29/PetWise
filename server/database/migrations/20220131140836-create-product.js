@@ -19,6 +19,10 @@ module.exports = {
       image: {
         type: Sequelize.STRING,
       },
+      cost: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
