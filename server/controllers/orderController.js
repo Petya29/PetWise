@@ -13,7 +13,12 @@ class OrderController {
 
     async addOrder(req, res, next) {
         try {
-            
+            const { productId } = req.body;
+            const userId = req.user.id;
+
+            const orderData = await orderService.addOrder(productId, userId);
+
+            res.json(orderData);
         } catch (e) {
             res.status(e.status).send(e);
         }

@@ -6,5 +6,6 @@ const orderController = require('../controllers/orderController');
 const router = new Router();
 
 router.get('/list', orderController.getOrders);
+router.post('/add', authMiddleware, orderController.addOrder);
 
 module.exports = router;
