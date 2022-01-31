@@ -33,6 +33,10 @@ module.exports = {
       activationLink: {
         type: Sequelize.STRING
       },
+      count: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0
+      },
       createdAt: {
         type: Sequelize.DATE,
         allowNull: false,
