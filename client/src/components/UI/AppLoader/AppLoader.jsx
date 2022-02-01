@@ -4,7 +4,7 @@ import classes from "./AppLoader.module.css";
 export default function AppLoader(props) {
     return (
         <div {...props} className={['preloader-wrapper small active', classes.AppLoader].join(' ')}>
-            <div className={['spinner-layer', classes.AppLoaderLayer].join(' ')}>
+            <div className="spinner-layer" style={{borderColor: props.color}}>
                 <div className="circle-clipper left">
                     <div className="circle"></div>
                 </div><div className="gap-patch">
