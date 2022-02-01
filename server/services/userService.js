@@ -113,6 +113,7 @@ class userService {
                     'id',
                     'name',
                     'email',
+                    'count',
                     'role',
                     'isActivated'
                 ]
