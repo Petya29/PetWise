@@ -102,6 +102,16 @@ class UserController {
             res.status(e.status).send(e);
         }
     }
+
+    async getCount(req, res, next) {
+        try {
+            const userId = req.params.id;
+            const count = await userService.getCount(userId);
+            res.json(count.count);
+        } catch (e) {
+            res.status(e.status).send(e);
+        }
+    }
 }
 
 module.exports = new UserController();

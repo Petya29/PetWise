@@ -116,7 +116,8 @@ class userService {
                     'role',
                     'isActivated'
                 ]
-            });
+            }
+        );
 
         return user;
     }
@@ -130,6 +131,21 @@ class userService {
         const incrementResult = await user.increment(['count'], { by: values });
 
         return incrementResult;
+    }
+
+    async getCount(userId) {
+        const user = await User.findByPk(
+            userId,
+            {
+                attributes: [
+                    'count'
+                ]
+            }
+        );
+
+        if (!user) throw ApiError.badRequest("User with this id didn't exist", [{ msg: "User with this id didn't exist" }]);
+
+        return user;
     }
 }
 
