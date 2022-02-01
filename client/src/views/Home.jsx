@@ -39,7 +39,7 @@ export default function Home() {
           <AppLoader style={{ width: "50px", height: "50px" }} color="#ffffff" />
         </div>
         :
-        <ProductsList products={products} />
+        <ProductsList products={products} modalId="productModal" />
       }
     </div>
   )

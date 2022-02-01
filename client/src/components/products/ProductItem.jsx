@@ -1,4 +1,6 @@
 import React from 'react';
+import AppModal from '../UI/AppModal/AppModal';
+import PurchaseProduct from './PurchaseProduct';
 
 export default function ProductItem(props) {
     return (
@@ -15,12 +17,15 @@ export default function ProductItem(props) {
                     <span className="product-cost">
                         Price: {props.product.cost}
                     </span>
-                    <a href="#!" className="waves-effect waves-light btn-small">
+                    <a className="waves-effect waves-light btn modal-trigger" href={"#productModal" + props.product.id}>
                         <i className="material-icons right">attach_money</i>
                         Buy
                     </a>
                 </div>
             </div>
+            <AppModal modalId={"productModal" + props.product.id}>
+                <PurchaseProduct product={props.product} />
+            </AppModal>
         </div>
     )
 }

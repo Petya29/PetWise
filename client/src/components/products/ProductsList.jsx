@@ -5,7 +5,7 @@ export default function ProductsList(props) {
     return (
         <div className="products-list">
             {(props.products).map((product) => (
-                <ProductItem product={product} key={product.id} />
+                <ProductItem product={product} modalId={props.modalId} key={product.id} />
             ))}
         </div>
     )

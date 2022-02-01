@@ -64,3 +64,42 @@ input {
   justify-content: center;
   align-items: center;
 }
+
+.purchase-product {
+  min-height: 200px;
+}
+
+.modal-loader-wrap {
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.purchasing-thx i {
+  font-size: 70px;
+  color: green;
+}
+
+.purchasing-error i {
+  font-size: 70px;
+  color: #ff0000;
+}
+
+.purchasing-thx,
+.purchasing-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.purchasing-thx span,
+.purchasing-error span {
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+
+.purchasing-error div {
+  font-size: 30px;
+}
