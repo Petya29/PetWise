@@ -57,3 +57,10 @@ input {
   padding: 10px !important;
   margin: 10px;
 }
+
+.home-loader-wrap {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
