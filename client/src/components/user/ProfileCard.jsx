@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import UserService from '../../services/UserService';
+import { useTranslation } from 'react-i18next';
 import AppLoader from '../UI/AppLoader/AppLoader';
 
 export default function ProfileCard() {
+
+    const { t } = useTranslation();
 
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true);
@@ -43,21 +46,21 @@ export default function ProfileCard() {
                         :
                         <div className="card blue-grey darken-1">
                             <div className="card-content white-text">
-                                <span className="card-title">Profile</span>
+                                <span className="card-title">{t('Profile')}</span>
                                 <div className="profile-data container">
                                     <table>
                                         <thead></thead>
                                         <tbody>
                                             <tr>
-                                                <td>Name</td>
+                                                <td>{t('Name')}</td>
                                                 <td>{user.name}</td>
                                             </tr>
                                             <tr>
-                                                <td>Email</td>
+                                                <td>{t('Email')}</td>
                                                 <td>{user.email}</td>
                                             </tr>
                                             <tr>
-                                                <td>Count</td>
+                                                <td>{t('Count')}</td>
                                                 <td>{user.count}</td>
                                             </tr>
                                         </tbody>
@@ -67,7 +70,7 @@ export default function ProfileCard() {
                             <div className="card-action">
                                 <a href="#!" className="waves-effect waves-light btn-small">
                                     <i className="material-icons right">edit</i>
-                                    Edit
+                                    {t('Edit')}
                                 </a>
                             </div>
                         </div>

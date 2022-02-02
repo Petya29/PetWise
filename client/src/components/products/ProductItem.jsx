@@ -1,8 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import AppModal from '../UI/AppModal/AppModal';
 import PurchaseProduct from './PurchaseProduct';
 
 export default function ProductItem(props) {
+
+    const { t } = useTranslation();
+
     return (
         <div className="product-item">
             <div className="card">
@@ -15,11 +19,11 @@ export default function ProductItem(props) {
                 </div>
                 <div className="card-action product-footer">
                     <span className="product-cost">
-                        Price: {props.product.cost}
+                        {t('Price')}: {props.product.cost}
                     </span>
                     <a className="waves-effect waves-light btn modal-trigger" href={"#productModal" + props.product.id}>
                         <i className="material-icons right">attach_money</i>
-                        Buy
+                        {t('Buy')}
                     </a>
                 </div>
             </div>

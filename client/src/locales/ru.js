@@ -1,0 +1,23 @@
+export const translationsRu = {
+    Profile: "Профиль",
+    Logout: "Выйти",
+    Login: "Войти",
+    Register: "Регистрация",
+    Home: "Главная",
+    Email: "Эл. адрес",
+    Password: "Пароль",
+    Name: 'Имя',
+    passwordConfirmation: "Подтверждение пароля",
+    Price: "Цена",
+    Buy: "Купить",
+    doYouWantPurchase: "Хотите купить",
+    accountWillBeCharged: "Если вы покупаете этот продукт, с вашего счета будет снято",
+    Disagree: "Не согласен",
+    Agree: "Согласен",
+    Cancel: "Отменить",
+    Back: "Назад",
+    purchasedSuccessfully: "Успешно куплено",
+    Error: "Ошибка",
+    Count: "Счёт",
+    Edit: "Редактировать"
+}
