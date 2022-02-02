@@ -48,12 +48,18 @@ class userService {
     async login(email, password) {
         const user = await User.findOne({ where: { email: email } });
         if (!user) {
-            throw ApiError.badRequest('User with this email not found', [{ msg: 'User with this email not found' }]);
+            throw ApiError.badRequest('User with this email not found', [{
+                msg: 'User with this email not found',
+                param: 'email'
+            }]);
         }
 
         const isPassEquals = await bcrypt.compare(password, user.password);
         if (!isPassEquals) {
-            throw ApiError.badRequest('Password does not match', [{ msg: 'Password does not match' }]);
+            throw ApiError.badRequest('Password does not match', [{
+                msg: 'Password does not match',
+                param: 'password'
+            }]);
         }
 
         const tokens = tokenService.generateJWT({
