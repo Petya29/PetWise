@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { setUser, setAuth } from '../../store/reducers/authSlice';
+import { hideErrors, showErrors } from '../../helpers/form';
 import MyButton from '../UI/MyButton/MyButton';
 import AuthService from '../../services/AuthService';
 import AppLoader from '../UI/AppLoader/AppLoader';
@@ -19,6 +20,8 @@ export default function LoginForm() {
   const submitForm = async (e) => {
     e.preventDefault();
 
+    hideErrors();
+
     try {
       setLoading(true);
 
@@ -32,11 +35,8 @@ export default function LoginForm() {
     } catch (e) {
       setLoading(false);
       console.log(e.response?.data);
-      if (e.response?.data?.errors?.param) {
-        const field = document.getElementById(e.response.data.errors.param);
-        field.classList.add('invalid');
-        const dangerText = document.querySelector(`.danger-${e.response.data.errors.param}`);
-        dangerText.classList.remove('hide');
+      if (e.response?.data?.errors[0]) {
+        showErrors(e.response.data.errors[0]);
       }
     }
 
@@ -49,13 +49,14 @@ export default function LoginForm() {
           <div className="input-field col s12">
             <input id="email" type="email" className="validate" onChange={e => setEmail(e.target.value)} />
             <label htmlFor="email">Email</label>
+            <small className="danger-text danger-email red-text hide">User with this email doesn't exist</small>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
             <input id="password" type="password" className="validate" onChange={e => setPassword(e.target.value)} />
             <label htmlFor="password">Password</label>
-            <small className="danger-password red-text hide">Password does not match</small>
+            <small className="danger-text danger-password red-text hide">Password does not match</small>
           </div>
         </div>
         <MyButton onClick={e => submitForm(e)} style={{ float: 'right' }} disabled={loading}>
